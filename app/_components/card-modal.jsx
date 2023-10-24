@@ -32,24 +32,24 @@ export default function CardModal({ setShow, data, setData }) {
 							<Image src={data.img} alt='place' fill className='object-cover' />
 						</div>
 						<div className='grid grid-cols-12'>
-							<div className='col-span-2'>Cordinate</div>
-							<div className='col-span-10 break-words'>: {data.cordinate}</div>
+							<div className='col-span-3 sm:col-span-2'>Cordinate</div>
+							<div className='col-span-9 sm:col-span-10 break-words'>: {data.cordinate}</div>
 						</div>
 						<div className='grid grid-cols-12'>
-							<div className='col-span-2'>Type</div>
-							<div className='col-span-10'>
+							<div className='col-span-3 sm:col-span-2'>Type</div>
+							<div className='col-span-9 sm:col-span-10'>
 								: <Badge>{data.type}</Badge>
 							</div>
 						</div>
 						<div className='grid grid-cols-12'>
-							<div className='col-span-2'>Size</div>
-							<div className='col-span-10'>
+							<div className='col-span-3 sm:col-span-2'>Size</div>
+							<div className='col-span-9 sm:col-span-10'>
 								: {data.size}m<sup>2</sup>
 							</div>
 						</div>
 						<div className='grid grid-cols-12'>
-							<div className='col-span-2'>Price</div>
-							<div className='col-span-10'>
+							<div className='col-span-3 sm:col-span-2'>Price</div>
+							<div className='col-span-9 sm:col-span-10'>
 								<span>
 									: <span className='font-semibold'>Rp {data.price}</span>
 								</span>
