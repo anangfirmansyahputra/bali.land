@@ -36,9 +36,9 @@ export default function Map() {
 
 	const listMarkers = [
 		{
-			marker: [-8.651756537947689, 115.1213992211438],
+			marker: [-8.651620771016303, 115.12143952709745],
 			data: {
-				cordinate: '-8.651756537947689, 115.1213992211438',
+				cordinate: '-8.651620771016303, 115.12143952709745',
 				type: 'Freehold',
 				size: '500',
 				price: '3.968.000.000',
