@@ -31,21 +31,32 @@ export default function CardModal({ setShow, data, setData }) {
 						<div className='w-full aspect-video relative'>
 							<Image src={data.img} alt='place' fill className='object-cover' />
 						</div>
-						<p className='break-words'>Cordinate : {data.cordinate}</p>
-						<p>
-							Type : <Badge>{data.type}</Badge>
-						</p>
-						<p>
-							Size :{' '}
-							<span>
-								{data.size}m<sup>2</sup>
-							</span>
-						</p>
-						<p>
-							Price : <span className='font-semibold'>Rp {data.price}</span>
-						</p>
+						<div className='break-words grid grid-cols-12'>
+							<div className='col-span-2'>Cordinate</div>
+							<div className='col-span-10'>: {data.cordinate}</div>
+						</div>
+						<div className='grid grid-cols-12'>
+							<div className='col-span-2'>Type</div>
+							<div className='col-span-10'>
+								: <Badge>{data.type}</Badge>
+							</div>
+						</div>
+						<div className='grid grid-cols-12'>
+							<div className='col-span-2'>Size</div>
+							<div className='col-span-10'>
+								: {data.size}m<sup>2</sup>
+							</div>
+						</div>
+						<div className='grid grid-cols-12'>
+							<div className='col-span-2'>Price</div>
+							<div className='col-span-10'>
+								<span>
+									: <span className='font-semibold'>Rp {data.price}</span>
+								</span>
+							</div>
+						</div>
 						<CardDescription className='space-y-2 text-xs sm:text-sm max-h-[100px] overflow-y-auto'>
-							<p>Description : </p>
+							<p>Description</p>
 							<p>{data.description}</p>
 						</CardDescription>
 					</CardContent>
