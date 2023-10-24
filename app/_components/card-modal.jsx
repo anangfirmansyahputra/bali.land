@@ -1,46 +1,20 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../components/ui/card';
 
 export default function CardModal({ setShow, data, setData }) {
-	// const activitiesAllowed = [
-	// 	{
-	// 		title: 'Rumah kos',
-	// 	},
-	// 	{
-	// 		title: 'Toko kelontong / warung / kios',
-	// 	},
-	// 	{
-	// 		title: 'Minimarket',
-	// 	},
-	// 	{
-	// 		title: 'Supermarket',
-	// 	},
-	// 	{
-	// 		title: 'Department Store',
-	// 	},
-	// 	{
-	// 		title: 'Hypermart',
-	// 	},
-	// 	{
-	// 		title: 'Mall',
-	// 	},
-	// 	{
-	// 		title: 'Perkulakan/grosir',
-	// 	},
-	// 	{
-	// 		title: 'Rumah makan',
-	// 	},
-	// 	{
-	// 		title: 'Restaurant',
-	// 	},
-	// ];
-
+	const [isLoading, setIsLoading] = useState(false);
 	const [active, setActive] = useState(false);
+
+	useEffect(() => {
+		setIsLoading(true);
+	}, []);
+
+	if (!isLoading) return null;
 
 	return (
 		<div className='z-[9999] absolute top-0 w-screen h-screen bg-[#0000006f] flex items-center justify-center sm:p-0 p-6'>
