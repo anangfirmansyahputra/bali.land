@@ -2,7 +2,7 @@
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Polygon, TileLayer } from 'react-leaflet';
 import CardModal from './card-modal';
 
@@ -16,6 +16,7 @@ const markerIcon = Leaflet.divIcon({
 export default function Map() {
 	const [show, setShow] = useState(false);
 	const [data, setData] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const purpleOptions = { color: 'purple' };
 
@@ -544,6 +545,12 @@ export default function Map() {
 			},
 		},
 	];
+
+	useEffect(() => {
+		setIsLoading(true);
+	}, []);
+
+	if (!setIsLoading) return null;
 
 	return (
 		<div className='relative'>
