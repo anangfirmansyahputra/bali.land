@@ -31,9 +31,9 @@ export default function CardModal({ setShow, data, setData }) {
 						<div className='w-full aspect-video relative'>
 							<Image src={data.img} alt='place' fill className='object-cover' />
 						</div>
-						<div className='break-words grid grid-cols-12'>
+						<div className='grid grid-cols-12'>
 							<div className='col-span-2'>Cordinate</div>
-							<div className='col-span-10'>: {data.cordinate}</div>
+							<div className='col-span-10 break-words'>: {data.cordinate}</div>
 						</div>
 						<div className='grid grid-cols-12'>
 							<div className='col-span-2'>Type</div>
