@@ -1,10 +1,12 @@
-import Image from 'next/image'
-import Map from './_components/map'
+import dynamic from 'next/dynamic'
+const DynamicMap = dynamic(() => import("./_components/map"), {
+  ssr: false
+})
 
 export default function Home() {
   return (
     <main>
-      <Map />
+      <DynamicMap />
     </main>
   )
 }

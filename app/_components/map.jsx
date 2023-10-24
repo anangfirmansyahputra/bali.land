@@ -2,7 +2,7 @@
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MapContainer, Marker, Polygon, TileLayer } from 'react-leaflet';
 import CardModal from './card-modal';
 
@@ -16,7 +16,6 @@ const markerIcon = Leaflet.divIcon({
 export default function Map() {
 	const [show, setShow] = useState(false);
 	const [data, setData] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
 
 	const purpleOptions = { color: 'purple' };
 
@@ -546,42 +545,34 @@ export default function Map() {
 		},
 	];
 
-	useEffect(() => {
-		setIsLoading(true);
-	}, []);
-
-	if (!isLoading) return null;
-
-	if (typeof window !== 'undefined') {
-		return (
-			<div className='relative'>
-				<MapContainer
-					center={[-8.651765392914381, +115.12164827109]}
-					zoom={20}
-					scrollWheelZoom={true}
-					style={{
-						height: '100vh',
-					}}
-				>
-					<TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-					{listMarkers.map((item) => (
-						<Marker
-							key={item.marker}
-							position={item.marker}
-							icon={markerIcon}
-							eventHandlers={{
-								click: (e) => {
-									setShow(true);
-									setData(item.data);
-								},
-							}}
-						/>
-					))}
-					<Polygon pathOptions={purpleOptions} positions={polygon} />
-					<Polygon pathOptions={purpleOptions} positions={polygon2} />
-				</MapContainer>
-				{show && <CardModal setShow={setShow} data={data} setData={setData} />}
-			</div>
-		);
-	}
+	return (
+		<div className='relative'>
+			<MapContainer
+				center={[-8.651765392914381, +115.12164827109]}
+				zoom={20}
+				scrollWheelZoom={true}
+				style={{
+					height: '100vh',
+				}}
+			>
+				<TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+				{listMarkers.map((item) => (
+					<Marker
+						key={item.marker}
+						position={item.marker}
+						icon={markerIcon}
+						eventHandlers={{
+							click: (e) => {
+								setShow(true);
+								setData(item.data);
+							},
+						}}
+					/>
+				))}
+				<Polygon pathOptions={purpleOptions} positions={polygon} />
+				<Polygon pathOptions={purpleOptions} positions={polygon2} />
+			</MapContainer>
+			{show && <CardModal setShow={setShow} data={data} setData={setData} />}
+		</div>
+	);
 }
